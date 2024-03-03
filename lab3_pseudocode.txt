@@ -1,0 +1,23 @@
+subalgorithm modify(it, value, new_value) is:
+	//it ist ein ListIterator
+	//pre: value ist ein Element von TComp
+	//    new_value ist ein Element von TComp
+	//post: 
+
+	if valid(search(it.list, value)) then
+	  @throws exception
+	end-if
+ 
+	pos : ListIterator
+
+	pos <- search(it.list, value)
+	//search(it.list, value) gibt ein ListIterator zuruck
+
+	it1 : ListIterator
+
+	for it1 <- *it, valid(it1), next(it1) execute
+	   if currentElement = pos.currentElement then
+	       @Anweisungen für die Ersetzung von value
+	   end-if
+	end-for
+end-subalgorithm
